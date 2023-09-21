@@ -162,3 +162,6 @@ cython_debug/
 
 data/
 models/
+src/visualization/fonts/
+src/visualization/logos/
+src/visualization/mplstyle/
