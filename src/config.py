@@ -1,6 +1,6 @@
 # Raw Data
-chain_file_path = "/Users/ciaran/Documents/Projects/AFL/git-repositories/expected-vaep-model/data/raw/match_chains.csv"
-player_stats_file_path = "/Users/ciaran/Documents/Projects/AFL/git-repositories/expected-vaep-model/data/raw/player_stats.csv"
+chain_file_path = "/Users/ciaran/Documents/Projects/AFL/data/match_chains.csv"
+player_stats_file_path = "/Users/ciaran/Documents/Projects/AFL/data/player_stats.csv"
 
 # Modeling Data
 exp_vaep_modelling_file_path = "/Users/ciaran/Documents/Projects/AFL/git-repositories/expected-vaep-model/data/processed/exp_vaep_modelling_data_v3.csv"

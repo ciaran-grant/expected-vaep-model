@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import joblib
 
-from ..features.preprocessing import get_expected_scores, convert_chains_to_schema, calculate_exp_vaep_values, create_gamestate_labels
+from features.preprocessing import get_expected_scores, convert_chains_to_schema, calculate_exp_vaep_values, create_gamestate_labels
 
 from config import *   
 
