@@ -1,0 +1,29 @@
+[project]
+name = "expected_vaep_model"
+description = "Building and analysing an expected vaep model."
+readme = "README.md"
+license = {file = "LICENSE"}
+version = "0.1.0"
+authors = [
+    { name = "Ciaran Grant", email = "ciaran.grant@hotmail.co.uk" }
+]
+requires-python = ">=3.11"
+
+dependencies = [
+    "pandas",
+    "numpy==1.23.5",
+    "joblib",
+    "matplotlib",
+    "seaborn",
+    "xgboost",
+    "optuna",
+    "betacal",
+    "shap",
+]
+
+[project.urls]
+"Repository" = "https://github.com/ciaran-grant/expected-vaep-model"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

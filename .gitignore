@@ -162,6 +162,6 @@ cython_debug/
 
 data/
 models/
-src/visualization/fonts/
-src/visualization/logos/
-src/visualization/mplstyle/
+src/expected_vaep_model/visualization/fonts/
+src/expected_vaep_model/visualization/logos/
+src/expected_vaep_model/visualization/mplstyle/
