@@ -1,9 +1,9 @@
 import pandas as pd
 import joblib
 import logging
-import config
-from data_preprocessor import ExpVAEPPreprocessor
-from preprocessing import get_expected_scores, convert_chains_to_schema, create_gamestate_labels, get_stratified_train_test_val_columns
+import expected_vaep_model.config as config
+from expected_vaep_model.features.data_preprocessor import ExpVAEPPreprocessor
+from expected_vaep_model.features.preprocessing import get_expected_scores, convert_chains_to_schema, create_gamestate_labels, get_stratified_train_test_val_columns
 
 import sys
 sys.path.append(config.exp_score_dir)

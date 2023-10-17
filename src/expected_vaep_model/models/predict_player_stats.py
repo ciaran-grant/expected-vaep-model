@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-from config import exp_vaep_chain_output_path, player_stats_file_path, exp_vaep_player_stats_output_path
+from expected_vaep_model.config import exp_vaep_chain_output_path, player_stats_file_path, exp_vaep_player_stats_output_path
 
 def predict_player_stats(scored_chains, player_stats_file_path, scored_player_stats_output_path):
     

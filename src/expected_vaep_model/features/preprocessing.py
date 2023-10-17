@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import joblib
 from formula import value
-from modelling_data_contract import ModellingDataContract
+from expected_vaep_model.modelling_data_contract import ModellingDataContract
 
 ### Converting chain data to SPADL format
 

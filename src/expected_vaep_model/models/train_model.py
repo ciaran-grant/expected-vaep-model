@@ -1,8 +1,8 @@
 import pandas as pd
-from ..modelling_data_contract import ModellingDataContract
-from .hyperparameter_tuning import XGBHyperparameterTuner
-from .supermodel import SuperXGBRegressor
-from .optuna_xgb_param_grid import OptunaXGBParamGrid
+from expected_vaep_model.modelling_data_contract import ModellingDataContract
+from expected_vaep_model.models.hyperparameter_tuning import XGBHyperparameterTuner
+from expected_vaep_model.models.supermodel import SuperXGBRegressor
+from expected_vaep_model.models.optuna_xgb_param_grid import OptunaXGBParamGrid
 
 def train_model(input_file_path, output_file_path, target, model_version):
 

@@ -1,5 +1,5 @@
-from preprocessing import get_expected_scores, convert_chains_to_schema, create_gamestate_features
-from modelling_data_contract import ModellingDataContract
+from expected_vaep_model.features.preprocessing import get_expected_scores, convert_chains_to_schema, create_gamestate_features
+from expected_vaep_model.modelling_data_contract import ModellingDataContract
 
 from sklearn.base import BaseEstimator, TransformerMixin
 

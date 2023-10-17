@@ -2,9 +2,8 @@ import pandas as pd
 import numpy as np
 import joblib
 
-from features.preprocessing import get_expected_scores, convert_chains_to_schema, calculate_exp_vaep_values, create_gamestate_labels
-
-from config import *   
+from expected_vaep_model.features.preprocessing import get_expected_scores, convert_chains_to_schema, calculate_exp_vaep_values, create_gamestate_labels
+from expected_vaep_model.config import *   
 
 def predict_model(chain_file_path, exp_vaep_chain_output_path):
 
