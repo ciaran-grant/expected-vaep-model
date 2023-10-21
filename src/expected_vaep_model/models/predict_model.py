@@ -2,25 +2,17 @@ import pandas as pd
 import numpy as np
 import joblib
 
+from expected_score_model.config import exp_behind_open_model_file_path, exp_behind_open_preprocessor_file_path
+from expected_score_model.config import exp_behind_set_model_file_path, exp_behind_set_preprocessor_file_path
+from expected_score_model.config import exp_goal_open_model_file_path, exp_goal_open_preprocessor_file_path
+from expected_score_model.config import exp_goal_set_model_file_path, exp_goal_set_preprocessor_file_path
+from expected_score_model.config import exp_miss_open_model_file_path, exp_miss_open_preprocessor_file_path
+from expected_score_model.config import exp_miss_set_model_file_path, exp_miss_set_preprocessor_file_path
+
 from expected_vaep_model.features.preprocessing import get_expected_scores, convert_chains_to_schema, calculate_exp_vaep_values, create_gamestate_labels
-from expected_vaep_model.config import *   
+from expected_vaep_model.config import chain_file_path, exp_vaep_preprocessor_file_path, exp_vaep_score_model_file_path, exp_vaep_concede_model_file_path, exp_vaep_chain_output_path
 
-def predict_model(chain_file_path, exp_vaep_chain_output_path):
-
-    expected_scores_path_dict = {
-    'set':{'goal':{'preprocessor':exp_goal_set_preprocessor_file_path,
-                    'model':exp_goal_set_model_file_path},
-            'behind':{'preprocessor':exp_behind_set_preprocessor_file_path,
-                    'model':exp_behind_set_model_file_path},
-            'miss':{'preprocessor':exp_miss_set_preprocessor_file_path,
-                    'model':exp_miss_set_model_file_path}},
-    'open':{'goal':{'preprocessor':exp_goal_open_preprocessor_file_path,
-                    'model':exp_goal_open_model_file_path},
-            'behind':{'preprocessor':exp_behind_open_preprocessor_file_path,
-                    'model':exp_behind_open_model_file_path},
-            'miss':{'preprocessor':exp_miss_open_preprocessor_file_path,
-                    'model':exp_miss_open_model_file_path}}
-    }
+def predict_model(chain_file_path, expected_scores_path_dict, exp_vaep_chain_output_path):
 
     # Load data
     chains = pd.read_csv(chain_file_path)
@@ -57,8 +49,23 @@ def predict_model(chain_file_path, exp_vaep_chain_output_path):
     print("Exporting.. complete.")
 
 if __name__ == "__main__":
+        
+    expected_scores_path_dict = {
+        'set':{'goal':{'preprocessor':exp_goal_set_preprocessor_file_path,
+                        'model':exp_goal_set_model_file_path},
+                'behind':{'preprocessor':exp_behind_set_preprocessor_file_path,
+                        'model':exp_behind_set_model_file_path},
+                'miss':{'preprocessor':exp_miss_set_preprocessor_file_path,
+                        'model':exp_miss_set_model_file_path}},
+        'open':{'goal':{'preprocessor':exp_goal_open_preprocessor_file_path,
+                        'model':exp_goal_open_model_file_path},
+                'behind':{'preprocessor':exp_behind_open_preprocessor_file_path,
+                        'model':exp_behind_open_model_file_path},
+                'miss':{'preprocessor':exp_miss_open_preprocessor_file_path,
+                        'model':exp_miss_open_model_file_path}}
+        }
     
-    predict_model(chain_file_path, exp_vaep_chain_output_path)
+    predict_model(chain_file_path, expected_scores_path_dict, exp_vaep_chain_output_path)
     
     
     
