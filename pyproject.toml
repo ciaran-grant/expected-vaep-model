@@ -15,7 +15,7 @@ dependencies = [
     "joblib",
     "matplotlib",
     "seaborn",
-    "xgboost",
+    "xgboost==1.7.3",
     "optuna",
     "betacal",
     "shap",

@@ -18,9 +18,9 @@ def play_left_to_right(chains):
     return chains
 
 def create_duration(chains):
-    max_quarter_durations = chains.groupby(['Match_ID', "Quarter"]).max()['Quarter_Duration'].reset_index()
+    max_quarter_durations = chains.groupby(['Match_ID', "Quarter"])['Quarter_Duration'].max().reset_index()
     max_quarter_durations = max_quarter_durations.rename(columns = {'Quarter_Duration':'Quarter_Duration_Max'})
-    max_quarter_durations = max_quarter_durations.pivot('Match_ID', 'Quarter', 'Quarter_Duration_Max')
+    max_quarter_durations = max_quarter_durations.pivot(index = 'Match_ID', columns='Quarter', values='Quarter_Duration_Max')
     chains = chains.merge(max_quarter_durations, how='left', on = ['Match_ID'])
     chains['Duration'] = np.where(chains['Quarter'] == 1, chains['Quarter_Duration'],
                                 np.where(chains['Quarter'] == 2, chains[1] + chains['Quarter_Duration'],
