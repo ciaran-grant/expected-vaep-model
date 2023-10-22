@@ -17,7 +17,7 @@ def predict_player_stats(scored_chains, player_stats_file_path, scored_player_st
     def get_receiver_totals_by_match(chains):
         return chains.groupby(['Match_ID', 'Receiver'])[['exp_vaep_value', 'exp_offensive_value', 'exp_defensive_value']].sum().reset_index().sort_values(by=['Match_ID', "Receiver"])
 
-    chains['Receiver'] = chains['Player'].shift(1)
+    chains['Receiver'] = chains['Player'].shift(-1)
     receiver_value = get_receiver_totals_by_match(chains)
     receiver_value = receiver_value.rename(columns = {
         "Receiver":"Player",
