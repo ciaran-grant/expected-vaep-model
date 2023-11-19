@@ -42,10 +42,10 @@ def predict_model(chain_file_path, expected_scores_path_dict, exp_vaep_chain_out
     print("Scoring.. complete.")
     
     # Merge back to chains
-    chains = chains.merge(scored_chains.drop(columns = ['xScore']), how = "left", left_on=['Match_ID', 'Chain_Number', 'Order'], right_on=['match_id', 'chain_number', 'order'])
+#     chains = chains.merge(scored_chains.drop(columns = ['xScore']), how = "left", left_on=['Match_ID', 'Chain_Number', 'Order'], right_on=['match_id', 'chain_number', 'order'])
 
     # Export data
-    chains.to_csv(exp_vaep_chain_output_path, index=False)
+    scored_chains.to_csv(exp_vaep_chain_output_path, index=False)
     print("Exporting.. complete.")
 
 if __name__ == "__main__":

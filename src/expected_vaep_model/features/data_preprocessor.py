@@ -56,7 +56,6 @@ class ExpVAEPPreprocessor(BaseEstimator, TransformerMixin):
         X_schema = convert_chains_to_schema(X)
         
         X_features = create_gamestate_features(X_schema)
-        X_features = X_features[self.modelling_cols]
                 
         return X_features
     

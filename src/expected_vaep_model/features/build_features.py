@@ -1,6 +1,7 @@
 import pandas as pd
 import joblib
 
+import expected_score_model.config as exp_score_config
 import expected_vaep_model.config as config
 from expected_vaep_model.features.data_preprocessor import ExpVAEPPreprocessor
 from expected_vaep_model.features.preprocessing import get_expected_scores, convert_chains_to_schema, create_gamestate_labels, get_stratified_train_test_val_columns
@@ -16,24 +17,24 @@ def match_chains_to_modelling_data(chain_file_path, model_output_path, preproces
     expected_scores_path_dict = {
         'set':{
             'goal':{
-                'preprocessor':config.exp_goal_set_preprocessor_file_path,
-                'model':config.exp_goal_set_model_file_path},
+                'preprocessor':exp_score_config.exp_goal_set_preprocessor_file_path,
+                'model':exp_score_config.exp_goal_set_model_file_path},
             'behind':{
-                'preprocessor':config.exp_behind_set_preprocessor_file_path,
-                'model':config.exp_behind_set_model_file_path},
+                'preprocessor':exp_score_config.exp_behind_set_preprocessor_file_path,
+                'model':exp_score_config.exp_behind_set_model_file_path},
             'miss':{
-                'preprocessor':config.exp_miss_set_preprocessor_file_path,
-                'model':config.exp_miss_set_model_file_path}},
+                'preprocessor':exp_score_config.exp_miss_set_preprocessor_file_path,
+                'model':exp_score_config.exp_miss_set_model_file_path}},
         'open':{
             'goal':{
-                'preprocessor':config.exp_goal_open_preprocessor_file_path,
-                'model':config.exp_goal_open_model_file_path},
+                'preprocessor':exp_score_config.exp_goal_open_preprocessor_file_path,
+                'model':exp_score_config.exp_goal_open_model_file_path},
             'behind':{
-                'preprocessor':config.exp_behind_open_preprocessor_file_path,
-                'model':config.exp_behind_open_model_file_path},
+                'preprocessor':exp_score_config.exp_behind_open_preprocessor_file_path,
+                'model':exp_score_config.exp_behind_open_model_file_path},
             'miss':{
-                'preprocessor':config.exp_miss_open_preprocessor_file_path,
-                'model':config.exp_miss_open_model_file_path}}
+                'preprocessor':exp_score_config.exp_miss_open_preprocessor_file_path,
+                'model':exp_score_config.exp_miss_open_model_file_path}}
     }
     
     print('Getting xScores for chains.')
