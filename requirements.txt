@@ -1,0 +1,10 @@
+pandas
+numpy==1.23.5
+joblib
+matplotlib
+seaborn
+xgboost==1.7.3
+optuna
+betacal
+shap
+pandera

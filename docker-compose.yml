@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  expectedvaep:
+    image: ciarangrant/expectedvaep:v20240308
+    volumes:
+      - /opt/AFL_Data:/AFL_Data
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.http.services.expectedvaep.loadbalancer.server.port=8002
+        
+        - traefik.http.routers.expectedvaep.entrypoints=websecure
+        - traefik.http.routers.expectedvaep.rule=Host(`ciarandgrant.com`)
+        - traefik.http.routers.expectedvaep.tls=true
+        - traefik.http.routers.expectedvaep.service=expectedvaep
+        - traefik.http.routers.expectedvaep.middlewares=authelia@docker
+      restart_policy:
+        condition: on-failure
+    networks:
+      - Traefik_overlay
+
+networks:
+  Traefik_overlay:
+    external: true

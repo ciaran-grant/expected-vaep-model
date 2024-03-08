@@ -9,18 +9,10 @@ authors = [
 ]
 requires-python = ">=3.11"
 
-dependencies = [
-    "pandas",
-    "numpy==1.23.5",
-    "joblib",
-    "matplotlib",
-    "seaborn",
-    "xgboost==1.7.3",
-    "optuna",
-    "betacal",
-    "shap",
-    "pandera"
-]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
 
 [project.urls]
 "Repository" = "https://github.com/ciaran-grant/expected-vaep-model"
