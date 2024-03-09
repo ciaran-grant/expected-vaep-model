@@ -5,11 +5,10 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route("/model/expectedscore/predict", methods=["GET", "POST"])
+@app.route("/model/expectedvaep/predict", methods=["GET", "POST"])
 def predict(ID = None):
-    data = request.json
-    
-    data = predict_exp_vaep(data, ID = request.json['ID'])
+
+    data = predict_exp_vaep(ID = request.json['ID'])
     
     upload_data(Dataset_Name="CG_Expected_VAEP", Dataset=data, overwrite=True, update_if_identical=True)
     

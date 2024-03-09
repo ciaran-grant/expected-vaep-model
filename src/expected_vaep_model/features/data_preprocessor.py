@@ -12,15 +12,10 @@ class ExpVAEPPreprocessor(BaseEstimator, TransformerMixin):
     """ Preprocessing class and functions for training total game score model.
     """
     
-    def __init__(self, expected_scores_path_dict):
-        """ Specify mappings and rolling average columns to create.
-
-        Args:
-            Mappings (Mappings): Mappings object specifying mapping and transformations.
-            rolling_dict (Dict): Dictionary specifying columns and types of rolling average columns.
+    def __init__(self):
+        """
         """
         self.ModellingDataContract = ModellingDataContract
-        self.expected_scores_path_dict = expected_scores_path_dict
        
         
     def fit(self, X):
@@ -49,13 +44,8 @@ class ExpVAEPPreprocessor(BaseEstimator, TransformerMixin):
             Dataframe: Transformed data with modelling columns and no missing values.
         """
         
-        # Get xScores
-        X = get_expected_scores(X, self.expected_scores_path_dict)
-        
         # Get Expected VAEP
         X_schema = convert_chains_to_schema(X)
-        
-        X_features = create_gamestate_features(X_schema)
-                
-        return X_features
+
+        return create_gamestate_features(X_schema)
     
