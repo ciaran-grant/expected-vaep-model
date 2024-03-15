@@ -2,10 +2,13 @@ version: "3"
 
 services:
   expectedvaep:
-    image: ciarangrant/expectedvaep:v20240310
+    image: ciarangrant/expectedvaep:v20240312
     volumes:
       - /opt/AFL_Data:/AFL_Data
     deploy:
+      placement:
+        constraints:
+          - node.role == worker
       labels:
         - traefik.enable=true
         - traefik.http.services.expectedvaep.loadbalancer.server.port=8002
