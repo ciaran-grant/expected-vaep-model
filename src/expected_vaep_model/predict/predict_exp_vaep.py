@@ -8,11 +8,11 @@ def load_preprocessor():
 
 def load_scores_model():
     
-    return joblib.load("model_outputs/exp_vaep_scores_v6.joblib")
+    return joblib.load("models/models/exp_vaep_scores_v6.joblib")
 
 def load_concedes_model():
     
-    return joblib.load("model_outputs/exp_vaep_concedes_v6.joblib")
+    return joblib.load("models/models/exp_vaep_concedes_v6.joblib")
 
 def merge_chains_shots(chains, shots):
     
