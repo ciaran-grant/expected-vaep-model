@@ -18,8 +18,9 @@ def predict(ID = None):
     concedes_model = load_concedes_model()
     
     schema_chains = create_features(chains, shots, scores_model, concedes_model, preprocessor)
+    schema_chains = schema_chains.drop_duplicates(subset = ['Chain_Number', 'Order'])
 
-    data = calculate_exp_vaep_values(schema_chains) 
+    data = calculate_exp_vaep_values(schema_chains)
     
     upload_data(Dataset_Name="CG_Expected_VAEP", Dataset=data, overwrite=True, update_if_identical=True)
     
