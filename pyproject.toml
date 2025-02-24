@@ -3,7 +3,7 @@ name = "expected_vaep_model"
 description = "Building and analysing an expected vaep model."
 readme = "README.md"
 license = {file = "LICENSE"}
-version = "0.2.0"
+version = "0.3.0"
 authors = [
     { name = "Ciaran Grant", email = "ciaran.grant@hotmail.co.uk" }
 ]

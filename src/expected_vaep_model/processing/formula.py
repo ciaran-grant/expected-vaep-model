@@ -40,11 +40,11 @@ def offensive_value(actions, scores, concedes) -> Series[float]:
     # if the previous action was a goal, the chances of scoring are now 0
     prevgoal_idx = (_prev(actions['action_type'] == "Shot")) & (_prev(actions['outcome_type'] == "effective"))
     prev_scores[prevgoal_idx] = 0
-    prevscore_idx = (_prev(actions['xScore'] > 0))
+    prevscore_idx = (_prev(actions['xscore'] > 0))
     prev_scores[prevscore_idx] = 0
     
     # if previous action was in prevous quarter
-    prevquarter_idx = (_prev(actions['quarter'] != actions['quarter']))
+    prevquarter_idx = (_prev(actions['period'] != actions['period']))
     prev_scores[prevquarter_idx] = 0
     
     return scores - prev_scores
@@ -82,11 +82,11 @@ def defensive_value(actions, scores, concedes) -> Series[float]:
     prevgoal_idx = (_prev(actions['action_type'] == "Shot")) & (_prev(actions['outcome_type'] == "effective"))
     prev_concedes[prevgoal_idx] = 0
     
-    prevscore_idx = (_prev(actions['xScore'] > 0))
+    prevscore_idx = (_prev(actions['xscore'] > 0))
     prev_concedes[prevscore_idx] = 0
     
     # if previous action was in prevous quarter
-    prevquarter_idx = (_prev(actions['quarter'] != actions['quarter']))
+    prevquarter_idx = (_prev(actions['period'] != actions['period']))
     prev_concedes[prevquarter_idx] = 0
     
     return -(concedes - prev_concedes)

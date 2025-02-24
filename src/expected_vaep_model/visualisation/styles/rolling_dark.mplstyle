@@ -1,0 +1,27 @@
+### TEXT
+text.color : "#FFFFFF" 
+
+### GRID
+grid.color : "lightgrey"
+grid.linestyle: ":"
+grid.linewidth: 0.2
+
+### Figure
+figure.dpi : 300
+figure.facecolor: "#121212"
+
+### Axis
+axes.facecolor: "#121212"
+axes.edgecolor: "#FFFFFF"
+axes.labelcolor: "#FFFFFF"
+axes.grid: True
+
+### Ticks
+xtick.color: "#FFFFFF"
+xtick.labelcolor: "#FFFFFF"
+ytick.color: "#FFFFFF"
+ytick.labelcolor: "#FFFFFF"
+
+### Spines
+axes.spines.top: False
+axes.spines.right: False
