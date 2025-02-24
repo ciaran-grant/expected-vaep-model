@@ -7,7 +7,7 @@ import itertools
 
 from expected_vaep_model.visualisation.afl_colours import team_colours
 
-def create_team_rolling(chains, team, window=10, metric='xvaep'):
+def create_team_rolling(chains, team, window=10, metric='exp_vaep_value'):
     
     team_chains = chains[chains['team'] == team]
     team_chains_for = team_chains.groupby(['year', 'round'])[[metric]].sum().rename(columns={metric:'for'})
@@ -42,7 +42,7 @@ def plot_team_rolling_ax(ax, team, team_rolling, annotate=True, years = None):
     ax.fill_between(x, y_against, y_for, where = y_for > y_against, interpolate=True, alpha=0.85, zorder=3, color=line_for[0].get_color())
     ax.fill_between(x, y_against, y_for, where = y_against >= y_for, interpolate=True, alpha=0.85, zorder=3, color=line_against[0].get_color())
 
-    ax.set_ylim(0, 125)
+    ax.set_ylim(0, 200)
 
     years = list(data.reset_index()['year'].unique())
     first_rounds = data.reset_index().groupby('year').first().reset_index()['round'].tolist()
@@ -65,7 +65,7 @@ def annotate_team_rolling_ax(ax, team, team_rolling, colour_for, colour_against,
     text_colour_for = "black" if colour_for == "white" else "white"
     text_colour_against = "black" if colour_against == "white" else "white"
     ax_text(
-        x=0, y=140,
+        x=0, y=230,
         s=f'<{team}>\n<xvaep for: {for_number:.1f}>  <xvaep against: {against_number:.1f}>',
         highlight_textprops=[
             {'weight':'bold', 'font':'Karla'},
