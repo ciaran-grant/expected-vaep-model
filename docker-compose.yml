@@ -2,7 +2,7 @@ version: "3"
 
 services:
   expectedvaep:
-    image: ciarangrant/expectedvaep:v20240312
+    image: ciarangrant/expectedvaep:v20250225
     volumes:
       - /opt/AFL_Data:/AFL_Data
     deploy:
