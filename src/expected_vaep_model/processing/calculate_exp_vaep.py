@@ -1,5 +1,5 @@
 import pandas as pd
-from expected_vaep_model.features.formula import value
+from expected_vaep_model.processing.formula import value
 
 def calculate_exp_vaep_values(schema_chains):
     
