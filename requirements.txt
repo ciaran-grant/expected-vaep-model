@@ -1,10 +1,12 @@
 pandas
-numpy==1.23.5
+numpy
 joblib
 matplotlib
 seaborn
-xgboost==1.7.3
+xgboost
 optuna
 betacal
 shap
 pandera
+flask
+highlight_text
