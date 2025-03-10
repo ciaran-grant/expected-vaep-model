@@ -7,11 +7,6 @@ def merge_xscores_to_chains(chains, xscore):
         'behind_probas',
         'goal_probas',
         'miss_probas',
-        'xscore',
-        'result',
-        'score',
-        'miss',
-        'behind',
-        'goal']
+        'xscore']
             
     return pd.merge(chains, xscore[keys + shot_cols], how = 'left', on = keys)
