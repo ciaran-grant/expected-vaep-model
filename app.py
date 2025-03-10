@@ -29,6 +29,7 @@ def predict(ID = None):
     schema_chains = schema_chains.drop_duplicates(subset = ['chain_number', 'order'])
 
     xvaep_chains = calculate_exp_vaep_values(schema_chains)
+    xvaep_chains['Match_ID'] = xvaep_chains['match_id']
     
     upload_data(Dataset_Name="CG_Expected_VAEP", Dataset=xvaep_chains, overwrite=True, update_if_identical=True)
     
