@@ -4,6 +4,7 @@ from expected_vaep_model.predict.predict import load_preprocessor, load_scores_m
 from expected_vaep_model.visualisation.plot_team_rolling_averages import create_team_rolling, plot_team_rolling_ax, plot_all_team_rolling_figure
 from AFLPy.AFLData_Client import load_data, upload_data
 from expected_vaep_model.fonts.fonts import load_fonts
+from AFLPy.ntfy import push_notification
 
 import matplotlib
 matplotlib.use('Agg')  # Use non-GUI backend before importing pyplot
@@ -16,7 +17,7 @@ import os
 app = Flask(__name__)
 
 @app.route("/model/expectedvaep/predict", methods=["GET", "POST"])
-def predict(ID = None):
+def predict(ID = None):  # sourcery skip: identity-comprehension
     
     chains = load_data(Dataset_Name="AFL_API_Match_Chains", ID = request.json['ID'])
     xscore = load_data(Dataset_Name='CG_Expected_Score', ID = request.json['ID'])
@@ -32,6 +33,8 @@ def predict(ID = None):
     xvaep_chains['Match_ID'] = xvaep_chains['match_id']
     
     upload_data(Dataset_Name="CG_Expected_VAEP", Dataset=xvaep_chains, overwrite=True, update_if_identical=True)
+    
+    push_notification("Expected VAEP Data Processed for:", ", ".join([match_id for match_id in list(xvaep_chains['Match_ID'].unique())]))
     
     return xvaep_chains.to_json(orient='records')
 
