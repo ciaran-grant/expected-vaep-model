@@ -22,9 +22,9 @@ def predict(ID = None):  # sourcery skip: identity-comprehension
     chains = load_data(Dataset_Name="AFL_API_Match_Chains", ID = request.json['ID'])
     xscore = load_data(Dataset_Name='CG_Expected_Score', ID = request.json['ID'])
     
-    preprocessor = load_preprocessor("exp_vaep_preprocessor.joblib")
-    scores_model = load_scores_model("exp_vaep_scores.joblib")
-    concedes_model = load_concedes_model("exp_vaep_concedes.joblib")
+    preprocessor = load_preprocessor("exp_vaep_preprocessor_25.joblib")
+    scores_model = load_scores_model("exp_vaep_scores_25.joblib")
+    concedes_model = load_concedes_model("exp_vaep_concedes_25.joblib")
     
     schema_chains = predict_scores_concedes(chains, xscore, scores_model, concedes_model, preprocessor)
     schema_chains = schema_chains.drop_duplicates(subset = ['chain_number', 'order'])
